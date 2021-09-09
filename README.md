@@ -99,3 +99,9 @@ print(s)
 [Видео Консоль](https://youtu.be/NOTPoMFwNb8)
 
 [Видео бот](https://youtu.be/Lzcj6lc0MXM)
+
+## Блок заданий №3
+
+[Блок задач автопроверки](https://goit.global/python-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=%09klmnop6158)
+
+
