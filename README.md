@@ -65,3 +65,37 @@ print(s)
 <img src = "./img/pythonanywhere18.jpg">  
 <img src = "./img/pythonanywhere19.jpg">  
 
+## Создание бота в Телеграмм
+<img src = "img/bot1.jpg">  
+
+Обращаемся к "Отцу всех ботов" - боту `botfather`  
+
+<img src = "img/bot2.jpg">  
+
+1. Выбираем меню команд.  
+2. Выбираем команду "/newbot" (создать нового бота)  
+
+<img src = "img/bot3.jpg">  
+
+[Видео](https://youtu.be/A9hEnpkYMw4)
+
+
+## Практическое задание.
+<a href = "https://github.com/mikh-maksi/own-finances-bot/blob/main/step02/02console_echo.py">Код для запуска в созданной консоли</a>  
+
+[Видео](https://youtu.be/-36HsVWeabY)
+
+<a href = "https://github.com/mikh-maksi/own-finances-bot/blob/main/step02/02bot_echo.py">Код для запуска эхо-бота</a>  
+
+[Видео](https://youtu.be/ctqrlqUd81o)
+
+
+## Блок заданий №2
+В текущем блоке мы научимся программировать команды.
+[Блок задач в автопроверке](https://goit.global/python-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=%09jklmnop157)
+
+[Код примеров](https://github.com/mikh-maksi/own-finances-bot/tree/main/step03)
+
+[Видео Консоль](https://youtu.be/NOTPoMFwNb8)
+
+[Видео бот](https://youtu.be/Lzcj6lc0MXM)
