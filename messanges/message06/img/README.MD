@@ -12,4 +12,8 @@
 <img src = "img/pythonanywhere7.jpg" height=600>  
 
 ### Установите библиотеку для работы с Teleogram
-В открывшееся окнок с черным фоном 
+В открывшееся окне с черным фоном впишите команду установки библиотеки для работы с Telegram.  
+`pip3 install python-telegram-bot --upgrade `
+<img src = "img/pythonanywhere03.jpg" height=600>  
+
+<img src = "img/pythonanywhere04_03.jpg" height=600>  
