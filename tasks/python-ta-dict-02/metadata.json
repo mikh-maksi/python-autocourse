@@ -1,0 +1,7 @@
+{
+    "title": "Строки из списков. 04",
+    "timeout": 0.05,
+    "continuous_check": false,
+    "codeCursor": "[2, 5]",
+    "multiple_inputs": [["/eat 10 bread"], ["/transport 100 taxi"]]
+}

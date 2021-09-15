@@ -1,0 +1,22 @@
+def test_list(user_ns):
+
+    assert "records" in user_ns, "{{records}}"
+    assert "string_in" in user_ns, "{{string_in}}"
+
+
+    records = user_ns["records"]
+    string_in = user_ns["string_in"]
+
+    assert isinstance(user_ns["records"], list), "{{ records_type }}"
+    assert isinstance(user_ns["string_in"], str), "{{ string_in_type }}"
+
+    result = []
+    result.append(string_in)
+
+    assert records == result , f"{{records_value}}"
+
+
+
+
+
+    return "{{success}}"
