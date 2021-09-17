@@ -15,5 +15,5 @@
 В открывшееся окне с черным фоном впишите команду установки библиотеки для работы с Telegram.  
 `pip3 install python-telegram-bot --upgrade `
 <img src = "img/pythonanywhere03.jpg" height=600>  
-Будут установлены все необходимые библиотеки:  
-<img src = "img/pythonanywhere04_02.jpg" >  
+
+<img src = "img/pythonanywhere04_02.jpg" height=600>  
