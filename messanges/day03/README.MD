@@ -44,7 +44,7 @@ def echo(update, context):
     string_in = update.message.text
 
     if string_in == '/start':
-        string_out = 'Hello! This is own finances bot!'
+        string_out = 'Привет! Это own finances bot!'
     elif string_in == '/rule1':
         string_out = '1. Считай мелкие расходы \n Небольшие расходы, которые ты обычно не учитываешь, в итоге перерастают в приличную сумму. Сегодня 40 гривен на кофе, завтра неожиданный хот-дог… Необязательно учитывать все расходы до копейки, но есть смысл записывать хотя бы те, которые больше 0,5 процента от дохода.   '
     elif string_in == '/rule2':
@@ -70,3 +70,4 @@ updater.idle()
 
 
 ```
+<img src = "./img/bot_rules.gif">
