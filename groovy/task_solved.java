@@ -58,4 +58,3 @@ ${name}, как ощущения?
 
     commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: telegramUser, sendOrdered: false, botName: 'goit_python_game_bot'], keyboard);
 }
-
