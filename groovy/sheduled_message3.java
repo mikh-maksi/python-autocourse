@@ -3,20 +3,11 @@ import java.time.*;
 //Включаем отладку
 debug.enable();
 
-//Ссылки на чаты
-def chatLinks = commonActions.getJsonPref('pythonGame').chatLinks;
-// [
-//     '2020-11-23': 'https://t.me/joinchat/NvnDERsVf-7-9GobIGqG6w',
-//     '2020-12-07': 'https://t.me/joinchat/NvnDERwX5pCzuhYuaWh0Sw',
-//     '2020-12-14': 'https://t.me/joinchat/NvnDERwTT4NXa5iHoEkeFw'
-// ];
-
-
 //Выбираем подходящих нам пользователей
 def telegramUserQueryParams = [:];
 telegramUserQueryParams['tag'] = 'PY-TA'; // Тег Телеграм пользователей
-//telegramUserQueryParams['maxRegisterDaysFromNow'] = '28'; //Пользователи, не старше 28 дней
-// telegramUserQueryParams['idIs'] = '473264504'; //ДЕБАГ - только мне слать
+// telegramUserQueryParams['maxRegisterDaysFromNow'] = '28'; //Пользователи, не старше 28 дней
+telegramUserQueryParams['idIs'] = '394735340'; //ДЕБАГ - только мне слать
 // telegramUserQueryParams['phoneIs'] = '380997852751'; //ДЕБАГ - только мне слать
 
 def telegramUsers = commonActions.getTelegramUsersWithAllConditions(telegramUserQueryParams);
@@ -29,13 +20,10 @@ if (telegramUsers.size() <= 0) {
 
 def telegramUsersData = commonActions.getAggregatedDataForTelegramUsers(telegramUsers);
 
-//Замыкание для определения текущего дня марафона
-//def getMarathonDay = commonActions.getUserVariable(user, 'dayNumberDone', '0');
+
 // Замыкание - оповещаем пользователя что есть ссылка на задачи такого-то дня
 def notifyUser = {tgUser, userData -> 
-    def chatLink = chatLinks[userData.variables.get('pyGameStartDate')];
-
-    def marathonDay = (int) commonActions.getUserVariable(user, 'dayNumberDone', '0');
+    def marathonDay = 1
 
     def blockHashes = ['1': '892345q94', '2': 'mnop67852', '3': '345qrst97'];
 
@@ -86,16 +74,8 @@ P.S. Закончите задачи прошлого дня, если вы не
 P.S. Напомним, что если у вас остались невыполненные задачи за прошлый день, закончите, прежде чем приступить к новым. Успехов 😎
 ''';
     
-    def message = messages[marathonDay + ''].replace('${name}', tgUser.firstName).replace('${chatLink}', chatLink);
-    commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: tgUser, sendOrdered: false, botName: 'goit_python_game_bot'], keyboard);
-}
-
-//Замыкание - должны ли мы списать пользователю жизнь в зависимости от дня марафона, и решенной им задачи
-def shouldNotifyUser = {tgUser, userData ->
-    def marathonDay = (int) commonActions.getUserVariable(user, 'dayNumberDone', '0');
-    
-    //Отправляем сообщения лишь в 1, 2, и 3-й дни
-    return marathonDay == 1 || marathonDay == 2 || marathonDay == 3;
+    def message = messages[marathonDay + ''].replace('${name}', tgUser.firstName);
+    commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: tgUser, sendOrdered: false, botName: 'GoITeens_Python_autocourse_bot'], keyboard);
 }
 
 //Пробегаемся по пользователям
@@ -111,9 +91,8 @@ for(telegramUser in telegramUsers) {
     
     //Смотрим, нужно ли оповещать пользователя в этот день
     try {
-        if (shouldNotifyUser(telegramUser, userData)) {
             notifyUser(telegramUser, userData); //Оповещаем пользователей
-        }
+        
     } catch(ex) {
         debug.log(ex, telegramUser);
     }

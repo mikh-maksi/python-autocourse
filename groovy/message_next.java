@@ -16,7 +16,7 @@ def chatLinks = commonActions.getJsonPref('pythonGame').chatLinks;
 def telegramUserQueryParams = [:];
 telegramUserQueryParams['tag'] = 'PY-TA'; // Тег Телеграм пользователей
 //telegramUserQueryParams['maxRegisterDaysFromNow'] = '28'; //Пользователи, не старше 28 дней
-// telegramUserQueryParams['idIs'] = '473264504'; //ДЕБАГ - только мне слать
+telegramUserQueryParams['idIs'] = '394735340'; //ДЕБАГ - только мне слать
 // telegramUserQueryParams['phoneIs'] = '380997852751'; //ДЕБАГ - только мне слать
 
 def telegramUsers = commonActions.getTelegramUsersWithAllConditions(telegramUserQueryParams);
@@ -30,12 +30,34 @@ if (telegramUsers.size() <= 0) {
 def telegramUsersData = commonActions.getAggregatedDataForTelegramUsers(telegramUsers);
 
 //Замыкание для определения текущего дня марафона
-//def getMarathonDay = commonActions.getUserVariable(user, 'dayNumberDone', '0');
+def getMarathonDay = {tgUser ->
+    //DEBUG - типо у меня 4-й день
+    // if (tgUser.userId == 473264504) {
+    //     return 3;
+    // }
+    
+    def userData = telegramUsersData.get(tgUser.userId);
+    if (userData == null) {
+        return -1;
+    }
+    
+    def pyGameStartDate = userData.variables.getOrDefault('pyGameStartDate', 'none');
+    if (pyGameStartDate.equals('none')) {
+        return -1;
+    }
+   
+    def gameDate = LocalDateTime.parse(pyGameStartDate + 'T00:00:00');
+    def today = LocalDate.now().toString() + "T00:00:00";
+    
+    return commonActions.getDateDiff(gameDate, today, 'days') + 1;
+    // return 4; //ДЕБАГ
+}
+
 // Замыкание - оповещаем пользователя что есть ссылка на задачи такого-то дня
 def notifyUser = {tgUser, userData -> 
     def chatLink = chatLinks[userData.variables.get('pyGameStartDate')];
 
-    def marathonDay = (int) commonActions.getUserVariable(user, 'dayNumberDone', '0');
+    def marathonDay = getMarathonDay(tgUser);
 
     def blockHashes = ['1': '892345q94', '2': 'mnop67852', '3': '345qrst97'];
 
@@ -92,7 +114,7 @@ P.S. Напомним, что если у вас остались невыпол
 
 //Замыкание - должны ли мы списать пользователю жизнь в зависимости от дня марафона, и решенной им задачи
 def shouldNotifyUser = {tgUser, userData ->
-    def marathonDay = (int) commonActions.getUserVariable(user, 'dayNumberDone', '0');
+    def marathonDay = getMarathonDay(tgUser);
     
     //Отправляем сообщения лишь в 1, 2, и 3-й дни
     return marathonDay == 1 || marathonDay == 2 || marathonDay == 3;
