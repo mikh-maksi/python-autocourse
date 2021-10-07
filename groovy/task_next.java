@@ -24,4 +24,4 @@
 ''';
     
     def message = messages[marathonDay + ''].replace('${name}', tgUser.firstName);
-    commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: tgUser, sendOrdered: false, botName: 'goit_python_game_bot'], keyboard);
+    commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: tgUser, sendOrdered: false, botName: 'GoITeens_Python_autocourse_bot'], keyboard);

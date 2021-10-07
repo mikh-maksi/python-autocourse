@@ -1,0 +1,19 @@
+def test_list(user_ns):
+
+    assert "string_in" in user_ns, "{{string_in}}"
+    assert "elements" in user_ns, "{{elements}}"
+    assert "command" in user_ns, "{{command}}"
+    assert "value" in user_ns, "{{value}}"
+    assert "command_name" in user_ns, "{{command_name}}"
+
+    string_in = user_ns["string_in"]
+    elements = user_ns["elements"]
+    command = user_ns["command"]
+    elements = user_ns["elements"]
+    command_name = user_ns["command_name"]
+
+    assert elements[0] == command, f"{{out_value1}}"
+    assert command[1:] == command_name, f"{{out_value2}}"
+
+
+    return "{{success}}"

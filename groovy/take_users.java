@@ -5,3 +5,7 @@ telegramUserQueryParams['idIs'] = '394735340'; //ДЕБАГ - только мн�
 // telegramUserQueryParams['phoneIs'] = '380997852751'; //ДЕБАГ - только мне слать
 
 def telegramUsers = commonActions.getTelegramUsersWithAllConditions(telegramUserQueryParams);
+
+def telegramUsersData = commonActions.getAggregatedDataForTelegramUsers(telegramUsers);
+def userData = telegramUsersData.get(tgUser.userId);
+def token = userData.user.token; 

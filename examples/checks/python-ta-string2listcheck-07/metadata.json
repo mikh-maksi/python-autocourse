@@ -1,0 +1,7 @@
+{
+    "title": "Проверка. 06",
+    "timeout": 0.05,
+    "continuous_check": false,
+    "codeCursor": "[2, 5]",
+    "multiple_inputs": [["/eat 10"], ["/transport ten"]]
+}

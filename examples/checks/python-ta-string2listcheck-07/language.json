@@ -1,0 +1,26 @@
+{
+    "string_out": {
+        "ru": "Переменная string_out не создана",
+        "ua": ""
+    },
+    "string_in": {
+        "ru": "Переменная string_in не создана",
+        "ua": ""
+    },
+    "elements": {
+        "ru": "Переменная elements не создана",
+        "ua": ""
+    },
+    "out_value1": {
+        "ru": "При вводе равном {string_in} переменная command имеет значение {command}, а не {elements[0]} ",
+        "ua": ""
+    },
+    "out_value2": {
+        "ru": "При вводе равном {string_in} переменная command_name имеет значение {command_name}, а не {elements[0][1:]}",
+        "ua": ""
+    },
+    "success": {
+        "ru": "Задача выполнена верно!",
+        "ua": ""
+    }
+}

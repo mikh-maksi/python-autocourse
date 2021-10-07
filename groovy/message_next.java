@@ -3,21 +3,13 @@ import java.time.*;
 //Включаем отладку
 debug.enable();
 
-//Ссылки на чаты
-def chatLinks = commonActions.getJsonPref('pythonGame').chatLinks;
-// [
-//     '2020-11-23': 'https://t.me/joinchat/NvnDERsVf-7-9GobIGqG6w',
-//     '2020-12-07': 'https://t.me/joinchat/NvnDERwX5pCzuhYuaWh0Sw',
-//     '2020-12-14': 'https://t.me/joinchat/NvnDERwTT4NXa5iHoEkeFw'
-// ];
-
-
 //Выбираем подходящих нам пользователей
 def telegramUserQueryParams = [:];
 telegramUserQueryParams['tag'] = 'PY-TA'; // Тег Телеграм пользователей
 //telegramUserQueryParams['maxRegisterDaysFromNow'] = '28'; //Пользователи, не старше 28 дней
 telegramUserQueryParams['idIs'] = '394735340'; //ДЕБАГ - только мне слать
 // telegramUserQueryParams['phoneIs'] = '380997852751'; //ДЕБАГ - только мне слать
+
 
 def telegramUsers = commonActions.getTelegramUsersWithAllConditions(telegramUserQueryParams);
 debug.log('Количество оповещаемых пользователей: ' + telegramUsers.size());

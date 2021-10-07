@@ -136,3 +136,6 @@ if (taskId.equals('python-ta-types-07')) {
     commonActions.sendTelegramSimpleTextMessage(message, [telegramUser: telegramUser, sendOrdered: false, botName: 'goiteens_python_bot']);
 }
 
+
+
+tgUserTag=PY-TA,tgUserSourceBotName=GoITeens_Python_autocourse_bot

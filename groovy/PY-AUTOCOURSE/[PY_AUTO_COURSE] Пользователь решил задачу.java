@@ -51,7 +51,7 @@ def msg = taskId;
 
 
 
-//commonActions.sendTelegramSimpleTextMessage(msg, [telegramUser: telegramUser, sendOrdered: false, botName: 'goiteens_python_bot']);
+commonActions.sendTelegramSimpleTextMessage(msg, [telegramUser: telegramUser, sendOrdered: false, botName: 'goiteens_python_bot']);
 
 
 //User solved last task - set variable

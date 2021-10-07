@@ -127,6 +127,7 @@ for(telegramUser in telegramUsers) {
     def userData = telegramUsersData.getOrDefault(telegramUser.userId, null);
     def tgUserId = telegramUser.userId;
     def tgUserInfo = telegramUser.userId + ' (' + telegramUser.getFullName() + ')';
+    debug.log(tgUserInfo, 'Send');
 
     if (userData == null) {
         debug.log(tgUserInfo, '[WARNING] No user data');

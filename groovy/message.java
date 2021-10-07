@@ -1,7 +1,9 @@
 debug.enable();
 
 
-def day = commonActions.getUserVariable(user, 'pythonCurrentScore', 30));
+
+
+def day = commonActions.getUserVariable(user, 'pythonCurrentScore', 30);
 
 def message = 
 '''

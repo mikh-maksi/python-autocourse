@@ -33,7 +33,6 @@ def telegramUsersData = commonActions.getAggregatedDataForTelegramUsers(telegram
 //def getMarathonDay = commonActions.getUserVariable(user, 'dayNumberDone', '0');
 // Замыкание - оповещаем пользователя что есть ссылка на задачи такого-то дня
 def notifyUser = {tgUser, userData -> 
-    def chatLink = chatLinks[userData.variables.get('pyGameStartDate')];
 
     def marathonDay = (int) commonActions.getUserVariable(user, 'dayNumberDone', '0');
 
