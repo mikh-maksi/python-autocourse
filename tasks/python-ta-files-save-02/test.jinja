@@ -1,0 +1,27 @@
+def test_read(user_ns):
+    from unittest import mock
+    assert "add_employee_to_file" in user_ns, "{{add_employee_to_file}}"
+
+    mock_open = mock.mock_open(read_data='Robert Stivenson, 28\nAlex Denver, 30\n')
+    user_ns['__builtins__']['open'] = mock_open
+
+    add_employee_to_file = user_ns["add_employee_to_file"]
+
+    record = "Drake Mikelsson, 19"
+    path = "data/employees.csv"
+    result = add_employee_to_file(record, path)
+
+    try:
+        mock_open.assert_called_once()
+    except:
+        raise AssertionError(f'{{open}}')
+
+    assert path in mock_open.call_args_list[0][0], f"{{open_path}}"
+    assert 'a' in mock_open.call_args_list[0][0], f"{{open_a}}"
+
+    assert mock_open.mock_calls.count(mock.call().close()) == 1, f'{{file_close}}'
+
+    assert mock.call().write(record+'\n') in mock_open.mock_calls, f'{{string_file}}'
+
+    return "{{success}}"
+

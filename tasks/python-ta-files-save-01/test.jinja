@@ -1,0 +1,91 @@
+def test_write_one(user_ns):
+
+    from unittest.mock import mock_open, call
+    open_mock = mock_open()
+    user_ns['__builtins__']['open'] = open_mock
+
+    write_costs_to_file = user_ns["write_costs_to_file"]
+
+    test_data = "/eat 10"
+
+    write_costs_to_file(test_data.copy(), "costs.txt")
+
+    try:
+        open_mock.assert_called_with("costs.txt", "w")
+    except:
+        raise AssertionError("{{open_path}}")
+
+    calls = [call('/eat 10')]
+
+    lines_call = [call(['Robert Stivenson,28\n', 'Alex Denver,30\n', 'Drake Mikelsson,19\n'])]
+    string_call = [call('Robert Stivenson,28\nAlex Denver,30\nDrake Mikelsson,19\n')]
+
+    count = 0
+
+    try:
+        open_mock().write.assert_has_calls(calls, any_order=True)
+    except:
+        count += 1
+    try:
+        open_mock().write.assert_has_calls(string_call)
+    except:
+        count += 1
+    try:
+        open_mock().writelines.assert_has_calls(lines_call, any_order=True)
+    except:
+        count += 1
+
+    if count == 3:
+        raise AssertionError(f'{{func_wrong}} {test_data}')
+
+    assert open_mock().close.call_count == 1, f'{{file_close}}'
+
+    return f"{{success}} {test_data}"
+
+def test_write_two(user_ns):
+
+    from unittest.mock import mock_open, call
+    open_mock = mock_open()
+    user_ns['__builtins__']['open'] = open_mock
+
+    write_employees_to_file = user_ns["write_employees_to_file"]
+
+    test_data = [["Alex Korp,28", "Boris Britva,33"], ["Max Pain,29"]]
+
+    write_employees_to_file(test_data.copy(), "employees.txt")
+
+    try:
+        open_mock.assert_called_with("employees.txt", "w")
+    except:
+        raise AssertionError("{{open_path}}")
+
+    calls = [call('Alex Korp,28\n'),
+              call('Boris Britva,33\n'),
+              call('Max Pain,29\n')]
+
+    lines_call = [call(['Alex Korp,28\n', 'Boris Britva,33\n', 'Max Pain,29\n'])]
+    string_call = [call('Alex Korp,28\nBoris Britva,33\nMax Pain,29\n')]
+
+    count = 0
+
+    try:
+        open_mock().write.assert_has_calls(calls, any_order=True)
+    except:
+        count += 1
+
+    try:
+        open_mock().write.assert_has_calls(string_call)
+    except:
+        count += 1
+
+    try:
+        open_mock().writelines.assert_has_calls(lines_call, any_order=True)
+    except:
+        count += 1
+
+    if count == 3:
+        raise AssertionError(f'{{func_wrong}} {test_data}')
+
+    assert open_mock().close.call_count == 1, f'{{file_close}}'
+
+    return f"{{success}} {test_data}"

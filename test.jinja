@@ -1,0 +1,46 @@
+def test_write_one(user_ns):
+
+    from unittest.mock import mock_open, call
+//создали mock-объект
+    open_mock = mock_open()
+// Связали объект с методом open
+    user_ns['__builtins__']['open'] = open_mock
+
+    write_employees_to_file = user_ns["write_employees_to_file"]
+
+//    test_data = ["eat", "ent","transport"]
+
+    write_employees_to_file("cat_list.txt")
+
+//Открытие файла. Запустили mock-объект с помощью метода assert_called_with с параметрами ("cat_list.txt", "w")
+    try:
+        open_mock.assert_called_with("cat_list.txt", "w")
+    except:
+        raise AssertionError("{{open_path}}")
+
+//Готовим варианты запуска для проверки через mock-объект
+    calls = [call('eat\n')]
+    lines_call = [call(['eat\n'])]
+    string_call = [call('eat\n')]
+
+    count = 0
+
+    try:
+        open_mock().write.assert_has_calls(calls, any_order=True)
+    except:
+        count += 1
+    try:
+        open_mock().write.assert_has_calls(string_call)
+    except:
+        count += 1
+    try:
+        open_mock().writelines.assert_has_calls(lines_call, any_order=True)
+    except:
+        count += 1
+
+    if count == 3:
+        raise AssertionError(f'{{func_wrong}} {test_data}')
+
+    assert open_mock().close.call_count == 1, f'{{file_close}}'
+
+    return f"{{success}} {test_data}"
