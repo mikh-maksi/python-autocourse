@@ -4,7 +4,7 @@ elements = string_in.split(' ')
 if not len(string_in) > 0:
     string_out = 'Your input is empty' #string_out =
 elif not string_in[0]=='/':
-    string_out = 'First symbol of your input is not slash.'
+    string_out = 'First symbol of your input is not slash'
 elif not ' ' in string_in:
     string_out = 'Your input does not contain spaces'
 elif not elements[1].isdigit():

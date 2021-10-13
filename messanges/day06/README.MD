@@ -34,6 +34,6 @@ def check(message):
 
 string_in = input("Введите команду с параметром\n")
 string_out = check(string_in)
-
+print(string_out)
 ```
 

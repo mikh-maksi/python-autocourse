@@ -38,7 +38,6 @@ dispatcher.add_handler(CommandHandler("start", start))
 
 updater.start_polling()
 updater.idle()
-
 ```
 
 
