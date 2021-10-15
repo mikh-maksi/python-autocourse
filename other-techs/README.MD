@@ -80,3 +80,29 @@ https://html-css-js-autocheck.goiteens.com/?token=d5fcc3783ba50fcac78b5a5ea8e4d6
 
 6) Блок 6 (6 задач):
 https://html-css-js-autocheck.goiteens.com/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=1abcdef75
+
+
+
+
+Домашние задания по JavaScript:
+Блок 1. 36 задач
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=cdefghi42
+
+
+Блок 2. Массивы 32 задачи
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=2345qrs60
+
+Блок 3. Объекты 41 задача
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=vwxyz0169
+
+Блок 4. Вызовы функций Call Aplly
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=uvwxyz0104
+
+Блок 5. Вызовы функций Call Aplly
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=uvwxyz0104
+
+Блок 6. Работа с методами класса
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=bcdefgh77
+
+Блок 7. Работа с данными (с использованием массивов)
+https://goit.global/js-homework-autocheck/?token=d5fcc3783ba50fcac78b5a5ea8e4d69f6fe51ed8368bc618a58a846ad8b03a63&block=op6789290
